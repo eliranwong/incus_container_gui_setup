@@ -56,11 +56,21 @@ To filter images that work with ```cloud-init```:
 
 Choose one of the GUI profiles below or use your own profile:
 
-[x11_pipewire_shift](https://github.com/eliranwong/MultiAMDGPU_AIDev_Ubuntu/blob/main/ubuntu_desktop/applications/container/incus_profiles/x11_pipewire_shift)
+[x11_pipewire_shift](https://github.com/eliranwong/incus_container_gui_setup/blob/main/incus_profiles/x11_pipewire_shift)
 
-[x11_pulseaudio_shift](https://github.com/eliranwong/MultiAMDGPU_AIDev_Ubuntu/blob/main/ubuntu_desktop/applications/container/incus_profiles/x11_pulseaudio_shift)
+[x11_pipewire_snap_shift](https://github.com/eliranwong/incus_container_gui_setup/blob/main/incus_profiles/x11_pipewire_snap_shift)
 
-Remarks: Check your display settings by running ```printenv | grep -i display``` and replace 'X1' with your display settings.
+[x11_pulseaudio_shift](https://github.com/eliranwong/incus_container_gui_setup/blob/main/incus_profiles/x11_pulseaudio_shift)
+
+[x11_pulseaudio_snap_shift](https://github.com/eliranwong/incus_container_gui_setup/blob/main/incus_profiles/x11_pulseaudio_snap_shift)
+
+Remarks: Use one of the following commands to check your display settings and replace 'X1' with your display settings:
+
+> printenv | grep -i display
+
+> echo $DISPLAY
+
+> ls /tmp/.X11-unix/
 
 # Create a Profile
 
@@ -233,7 +243,7 @@ devices:
 
 > sudo usermod -a -G render,video $LOGNAME
 
-> sudo apt install build-essential linux-headers-`uname -r` guvcview
+> sudo apt install build-essential linux-headers-\`uname -r\` guvcview
 
 > sudo reboot
 
