@@ -165,12 +165,13 @@ devices:
 
 # Bind Home Folder
 
-incus exec ub -- mkdir /home/ubuntu/eliran2
+> incus exec ub -- mkdir /home/ubuntu/eliran
 
-
-> incus exec ub -- chown ubuntu:ubuntu /home/ubuntu/eliran2
+> incus exec ub -- chown ubuntu:ubuntu /home/ubuntu/eliran
 
 > incus config device add ub home disk source=/home/${USER} path=/home/ubuntu/eliran shift=true
+
+Remarks: It is not good to bind directly to /home/ubuntu/, as it overrides .bashrc or .profile.
 
 # Login
 
