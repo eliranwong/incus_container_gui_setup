@@ -12,7 +12,6 @@ Tested Ubuntu 24.04 LTS, running on a [mobile tablet](https://starlabs.systems/p
 
 > incus admin init
 
-
 # Check Host Devices
 
 > incus info --resources | grep "PCI address: " -B 4
@@ -148,6 +147,20 @@ devices:
     connect: unix:@/tmp/.X11-unix/X1
     listen: unix:@/tmp/.X11-unix/X1
     type: proxy
+```
+
+To grant network access for audio:
+
+> mkdir -p ~/.config/pipewire/pipewire-pulse.conf.d
+
+> nano ~/.config/pipewire/pipewire-pulse.conf.d/pulse-tcp.conf
+
+Add the following content:
+
+```
+context.exec = [
+ { path = "pactl"  args = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1" }
+]
 ```
 
 > incus restart ub
