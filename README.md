@@ -294,7 +294,7 @@ with sr.Microphone() as source:
 
 Say something ...
 
-# Install ROCm
+# Install ROCm [For AMD GPU]
 
 Run in HOST:
 
@@ -319,6 +319,8 @@ Run in CONTAINER:
 > sudo apt install ./amdgpu-install_6.0.60002-1_all.deb
 
 > sudo amdgpu-install --rocmrelease=6.0.2 --usecase=graphics,opencl,openclsdk,hip,hiplibsdk,rocm,rocmdev,rocmdevtools,lrt,mllib,mlsdk --vulkan=amdvlk,pro --no-dkms -y --accept-eula
+
+For multiple GPUs setup, read https://github.com/eliranwong/MultiAMDGPU_AIDev_Ubuntu
 
 # Troubleshooting - Snap Apps
 
