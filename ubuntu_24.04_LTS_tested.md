@@ -6,6 +6,13 @@ Tested Ubuntu 24.04 LTS, running on a [mobile tablet](https://starlabs.systems/p
 
 > sudo apt install -y incus
 
+> sudo adduser $LOGNAME incus-admin
+
+> newgrp incus-admin
+
+> incus admin init
+
+
 # Check Host Devices
 
 > incus info --resources | grep "PCI address: " -B 4
