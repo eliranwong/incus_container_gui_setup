@@ -267,7 +267,7 @@ Go to "Input Devices" and say something ...
 
 # Install python and related tools
 
-> sudo apt install -y make build-essential python3 python-setuptools python3-pip python3-dev python3-venv libssl-dev libffi-dev libnss3 zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev nano micro
+> sudo apt install -y make build-essential python3 python-setuptools python3-pip python3-dev python3-venv libssl-dev libffi-dev libnss3 zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 # Test Speech Recognition
 
@@ -366,7 +366,7 @@ Remarks: To work with snap apps, DO NOT USE disk-type device, as suggested in [a
 
 To test:
 
-> sudo apt install gedit
+> sudo apt install gnome-text-editor
 
 > gedit
 
@@ -426,7 +426,11 @@ To download the newly selected language package(s), run:
 
 > sudo locale-gen
 
-2. Add input method
+2. Add Chinese fonts
+
+> sudo apt install -y xfonts-wqy ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-bkai00mp fonts-arphic-bsmi00lp fonts-arphic-gbsn00lp fonts-arphic-gkai00mp xfonts-intl-chinese xfonts-intl-chinese-big
+
+3. Add input method
 
 Example - add ibus-pinyin
 
@@ -436,7 +440,7 @@ Example - add ibus-pinyin
 
 > ibus-setup
 
-3. Configure ibus as default input:<br>
+4. Configure ibus as default input:<br>
 
 > sudo apt install im-config
 
@@ -447,7 +451,7 @@ select "Yes"<br>
 select "ibus"<br>
 select "OK"<br>
 
-4. Add environment variables
+5. Add environment variables
 
 > nano ~/.bashrc
 
