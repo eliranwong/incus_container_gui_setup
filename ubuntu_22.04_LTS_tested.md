@@ -270,6 +270,14 @@ Run in CONTAINER:
 
 For multiple GPUs setup, read https://github.com/eliranwong/MultiAMDGPU_AIDev_Ubuntu
 
+# PyTorch
+
+> python3 -m venv testtorch
+
+> source testtorch/bin/activate
+
+> pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.0 --no-cache-dir
+
 # Troubleshooting - Snap Apps
 
 To test:
