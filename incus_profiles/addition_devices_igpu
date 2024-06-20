@@ -1,5 +1,5 @@
 devices:
-  Webcam:
+  camera:
     busnum: "3"
     devnum: "2"
     gid: "1000"
