@@ -237,10 +237,3 @@ Microphone
 Input Method:
 
 > ibus-setup
-
-Snap Applications:
-
-> sudo apt install snapd
-
-> sudo snap install firefox
-
