@@ -8,7 +8,7 @@ Tested on [Ubuntu 24.04 LTS](https://github.com/eliranwong/incus_container_gui_s
 
 Tested Hardware: GPU, Sound, Microphone, Camera
 
-Tested GUI: X11 apps, Qt-based GUI apps, GTK-based apps, Snap apps
+Tested GUI: X11 apps, Qt-based GUI apps, GTK-based apps, Snap apps, System-tray apps
 
 Tested input method: ibus
 
