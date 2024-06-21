@@ -73,7 +73,7 @@ Output:
 
 # Run in Host
 
-> incus launch images:ubuntu/jammy/cloud ub
+> incus launch images:ubuntu/noble/cloud ub
 
 > echo "alias ub="incus exec ub -- sudo --login --user ubuntu" >> ~/.bashrc
 
@@ -171,6 +171,8 @@ context.exec = [
 
 > sudo usermod -a -G render,video $LOGNAME
 
+> sudo apt install linux-headers-\`uname -r\`
+
 > sudo reboot
 
 > sudo apt install -y pulseaudio-utils dbus-user-session dbus-x11 ibus im-config nano micro espeak x11-apps build-essential guvcview alsa-base alsa-utils pavucontrol
@@ -211,3 +213,9 @@ Microphone
 Input Method:
 
 > ibus-setup
+
+Snap Applications:
+
+> sudo apt install snapd
+
+> sudo snap install firefox
