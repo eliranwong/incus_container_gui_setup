@@ -6,7 +6,7 @@ Tested on [Ubuntu 22.04 LTS](https://github.com/eliranwong/incus_container_gui_s
 
 Tested on [Ubuntu 24.04 LTS](https://github.com/eliranwong/incus_container_gui_setup/blob/main/ubuntu_24.04_LTS_tested.md)
 
-Tested Hardware: GPU, Sound, Microphone
+Tested Hardware: GPU, Sound, Microphone, Camera
 
 Tested GUI: X11 apps, Qt-based GUI apps, GTK-based apps, Snap apps
 
