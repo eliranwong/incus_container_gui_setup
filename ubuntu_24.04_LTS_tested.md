@@ -175,7 +175,7 @@ context.exec = [
 
 > sudo reboot
 
-> sudo apt install -y pulseaudio-utils dbus-user-session dbus-x11 ibus im-config nano micro espeak x11-apps build-essential guvcview alsa-base alsa-utils pavucontrol
+> sudo apt install -y pulseaudio-utils dbus-user-session dbus-x11 ibus im-config nano micro espeak x11-apps build-essential guvcview alsa-base alsa-utils pavucontrol gedit falkon
 
 > nano ~/.bashrc
 
@@ -194,9 +194,33 @@ export PULSE_SERVER=tcp:127.0.0.1:4713
 
 # Testings
 
-GUI App:
+GUI X11 App:
 
 > xclock
+
+GTK Apps:
+
+> gedit
+
+Fix slow startup:
+
+> sudo apt purge xdg-desktop-portal-gnome
+
+> sudo apt purge xdg-desktop-portal-gtk
+
+Qt Apps:
+
+> falkon
+
+Snap Apps:
+
+> sudo apt install snapd
+
+> sudo anap install firefox
+
+System-tray Apps:
+
+> ibus-daemon -drx
 
 Sound:
 
@@ -219,3 +243,4 @@ Snap Applications:
 > sudo apt install snapd
 
 > sudo snap install firefox
+
