@@ -118,6 +118,8 @@ Configure Perplexica settings by first clicking the 'wheel' button at the left b
 
 # Launch from Host
 
+Run in HOST:
+
 1. Set aliases
 
 > nano ~/.bashrc
