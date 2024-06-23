@@ -116,6 +116,29 @@ firefox localhost:3000
 
 Configure Perplexica settings by first clicking the 'wheel' button at the left bottom corner.
 
+# Launch from Host
+
+1. Set aliases
+
+> nano ~/.bashrc
+
+Add the following content at the end of the file
+
+```
+alias ub="incus exec ub -- sudo --login --user ubuntu"
+alias perplexica="incus exec ub -- sudo --login --user ubuntu firefox localhost:3000 &>/dev/null & disown"
+```
+
+> source ~/.bashrc
+
+2. To launch Perplexica from host, run either:
+
+> ub firefox localhost:3000
+
+or
+
+> perplexica
+
 # References
 
 https://docs.docker.com/engine/install/ubuntu/
