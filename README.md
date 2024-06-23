@@ -12,7 +12,9 @@ Tested GUI: X11 apps, Qt-based GUI apps, GTK-based apps, Snap apps, System-tray 
 
 Tested input method: ibus
 
-Tested AI Tools: Llama.cpp
+Tested nested container: docker
+
+Tested AI Tools: Llama.cpp, Ollama, Perplexica
 
 # Install Incus on Ubuntu 24.04 LTS
 

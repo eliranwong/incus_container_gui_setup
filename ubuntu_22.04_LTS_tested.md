@@ -23,11 +23,11 @@ Remarks: Use one of the following commands to check your display settings and re
 
 To create a new profile:
 
-> incus profile create x11_pipewire_shift < x11_pipewire_shift
+> incus profile create x11_pipewire_snap_shift < x11_pipewire_snap_shift
 
 To edit an existing profile:
 
-> incus profile edit x11_pipewire_shift < x11_pipewire_shift
+> incus profile edit x11_pipewire_snap_shift < x11_pipewire_snap_shift
 
 Configure X11's access control, to allow non-network local connections:
 
@@ -420,3 +420,5 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export DefaultIMModule=ibus
 ```
+
+> source ~/.bashrc
