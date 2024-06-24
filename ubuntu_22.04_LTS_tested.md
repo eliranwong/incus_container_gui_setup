@@ -324,7 +324,7 @@ To test:
 
 > sudo apt install gnome-text-editor
 
-> gedit
+> gnome-text-editor
 
 ## Issue 1
 

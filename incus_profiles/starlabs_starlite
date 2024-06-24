@@ -95,7 +95,7 @@ devices:
 # Run in CONTAINER:
 # > sudo usermod -a -G render,video $LOGNAME
 # > sudo apt install build-essential linux-headers-\`uname -r\`
-# > sudo apt install -y pulseaudio-utils dbus-user-session dbus-x11 ibus wget nano micro build-essential alsa-base alsa-utils guvcview pavucontrol
+# > sudo apt install -y pulseaudio-utils dbus-user-session dbus-x11 ibus im-config wget nano micro build-essential alsa-base alsa-utils guvcview pavucontrol
 # > sudo apt purge xdg-desktop-portal-gnome
 # > sudo apt purge xdg-desktop-portal-gtk
 # > echo "export DISPLAY=:1" >> ~/.bashrc

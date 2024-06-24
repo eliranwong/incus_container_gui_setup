@@ -1,4 +1,4 @@
-# AI Tutorial: Docker + Perplexica + Snap + Firefox in a GUI-enabled Incus Container
+# Tutorial: Docker + Perplexica + Snap + Firefox in a GUI-enabled Incus Container (AI)
 
 "Perplexica is an open-source AI-powered searching tool or an AI-powered search engine that goes deep into the internet to find answers."
 
