@@ -1,5 +1,7 @@
 config:
   security.nesting: "true"
+  security.syscalls.intercept.mknod: "true"
+  security.syscalls.intercept.setxattr: "true"
   cloud-init.user-data: |
     #cloud-config
     package_update: true
