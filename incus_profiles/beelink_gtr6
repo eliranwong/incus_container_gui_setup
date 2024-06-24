@@ -92,6 +92,9 @@ config:
         fi
 description: GUI profile: x11+pipewire+camera+microphone+igpu+rocm+docker+home+snap
 devices:
+  # Run in HOST:
+  # > xhost +local:
+  # > echo "xhost +local:" >> ~/.profile
   x11_server:
     bind: container
     connect: unix:@/tmp/.X11-unix/X1

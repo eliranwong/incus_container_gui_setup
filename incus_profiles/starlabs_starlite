@@ -1,0 +1,104 @@
+config:
+  # security options to work with docker
+  security.nesting: "true"
+  security.syscalls.intercept.mknod: "true"
+  security.syscalls.intercept.setxattr: "true"
+description: GUI profile: x11+pipewire+camera+microphone+igpu+docker+home+snap
+devices:
+  camera1:
+    busnum: "1"
+    devnum: "7"
+    gid: "1000"
+    productid: "5830"
+    type: usb
+    uid: "1000"
+    vendorid: 0bda
+  camera2:
+    busnum: "1"
+    devnum: "8"
+    gid: "1000"
+    productid: 284d
+    type: usb
+    uid: "1000"
+    vendorid: 1bcf
+  controlC0:
+    source: /dev/snd/controlC0
+    type: unix-char
+  # Run in HOST:
+  # > incus storage create btrfspool btrfs
+  # > incus storage volume create btrfspool docker
+  docker:
+    path: /var/lib/docker
+    pool: btrfspool
+    source: docker
+    type: disk
+  dri_card0:
+    gid: "44"
+    source: /dev/dri/card1
+    type: unix-char
+  home:
+    path: /home/ubuntu/eliran
+    shift: "true"
+    source: /home/eliran
+    type: disk
+  dri_renderD128:
+    gid: "110"
+    source: /dev/dri/renderD128
+    type: unix-char
+  gpu:
+    gid: "44"
+    pci: "0000:00:02.0"
+    type: gpu
+  home:
+    path: /home/ubuntu/eliran
+    shift: "true"
+    source: /home/eliran
+    type: disk
+  # Run in HOST:
+  # > mkdir -p ~/.config/pipewire/pipewire-pulse.conf.d
+  # > nano ~/.config/pipewire/pipewire-pulse.conf.d/pulse-tcp.conf
+  # Add the following content:
+  # ```
+  # context.exec = [
+  #  { path = "pactl"  args = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1" }
+  # ]
+  # ```
+  pulseovernetwork:
+    bind: container
+    connect: tcp:127.0.0.1:4713
+    listen: tcp:127.0.0.1:4713
+    type: proxy
+  video0:
+    gid: "44"
+    source: /dev/video0
+    type: unix-char
+  video1:
+    gid: "44"
+    source: /dev/video1
+    type: unix-char
+  video2:
+    gid: "44"
+    source: /dev/video2
+    type: unix-char
+  video3:
+    gid: "44"
+    source: /dev/video3
+    type: unix-char
+  # Run in HOST:
+  # > xhost +local:
+  # > echo "xhost +local:" >> ~/.profile
+  x11_server:
+    bind: container
+    connect: unix:@/tmp/.X11-unix/X1
+    listen: unix:@/tmp/.X11-unix/X1
+    type: proxy
+# Run in CONTAINER:
+# > sudo usermod -a -G render,video $LOGNAME
+# > sudo apt install build-essential linux-headers-\`uname -r\`
+# > sudo apt install -y pulseaudio-utils dbus-user-session dbus-x11 ibus wget nano micro build-essential alsa-base alsa-utils guvcview pavucontrol
+# > sudo apt purge xdg-desktop-portal-gnome
+# > sudo apt purge xdg-desktop-portal-gtk
+# > echo "export DISPLAY=:1" >> ~/.bashrc
+# > echo "export PULSE_SERVER=tcp:127.0.0.1:4713" >> ~/.bashrc
+# > echo "ibus-daemon -drx" >> ~/.profile
+# > sudo reboot
