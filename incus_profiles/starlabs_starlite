@@ -3,7 +3,7 @@ config:
   security.nesting: "true"
   security.syscalls.intercept.mknod: "true"
   security.syscalls.intercept.setxattr: "true"
-description: GUI profile: x11+pipewire+camera+microphone+igpu+docker+home+snap
+description: GUI profile - x11+pipewire+camera+microphone+igpu+docker+home+snap
 devices:
   camera1:
     busnum: "1"
@@ -86,7 +86,7 @@ devices:
     type: unix-char
   # Run in HOST:
   # > xhost +local:
-  # > echo "xhost +local:" >> ~/.profile
+  # > echo "xhost +local:" >> ~/.bashrc
   x11_server:
     bind: container
     connect: unix:@/tmp/.X11-unix/X1
@@ -94,6 +94,8 @@ devices:
     type: proxy
 # Run in CONTAINER:
 # > sudo usermod -a -G render,video $LOGNAME
+# > echo "export DISPLAY=:1" >> ~/.profile
+# > sudo apt update
 # > sudo apt install build-essential linux-headers-\`uname -r\`
 # > sudo apt install -y pulseaudio-utils dbus-user-session dbus-x11 ibus im-config wget nano micro build-essential alsa-base alsa-utils guvcview pavucontrol
 # > sudo apt purge xdg-desktop-portal-gnome

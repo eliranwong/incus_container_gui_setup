@@ -1,5 +1,4 @@
 config:
-  # security options to work with docker
   security.nesting: "true"
   security.syscalls.intercept.mknod: "true"
   security.syscalls.intercept.setxattr: "true"
@@ -14,17 +13,8 @@ config:
       - dbus-x11
       - ibus
       - im-config
-      - wget
       - nano
       - micro
-      - portaudio19-dev
-      - alsa-base
-      - alsa-utils
-      - pavucontrol
-      - guvcview
-      - snapd
-      - gnome-text-editor
-      - xdg-desktop-portal-gnome
     write_files:
     - path: /var/lib/cloud/scripts/per-boot/set_up_sockets.sh
       permissions: 0755
@@ -39,8 +29,6 @@ config:
           [[ ! -d "${run_dir}" ]] && mkdir -p "${run_dir}" && chmod 700 "${run_dir}" && chown ${user_uid}:${user_gid} "${run_dir}"
           [[ ! -d "${run_dir}/pulse" ]] && mkdir -p "${run_dir}/pulse" && chmod 700 "${run_dir}/pulse" && chown ${user_uid}:${user_gid} "${run_dir}/pulse"
           [[ -S "${mnt_dir}/native" ]]  && [[ -d "${run_dir}/pulse" ]] && [[ ! -e "${run_dir}/pulse/native" ]] && touch "${run_dir}/pulse/native" && sudo mount --bind "${mnt_dir}/native" "${run_dir}/pulse/native"
-          [[ -S "${mnt_dir}/pipewire-0" && -d "${run_dir}" && ! -e "${run_dir}/pipewire-0" ]] && touch "${run_dir}/pipewire-0" && sudo mount --bind "${mnt_dir}/pipewire-0" "${run_dir}/pipewire-0"
-          [[ -S "${mnt_dir}/pipewire-0-manager" && -d "${run_dir}" && ! -e "${run_dir}/pipewire-0-manager" ]] && touch "${run_dir}/pipewire-0-manager" && sudo mount --bind "${mnt_dir}/pipewire-0-manager" "${run_dir}/pipewire-0-manager"
         fi
     - path: /var/lib/cloud/scripts/per-once/set_up_env_vars.sh
       permissions: 0755
@@ -90,11 +78,8 @@ config:
           groupmod -g ${user_uid} ${users_group}
           chown -R ${user_uid}:${user_uid} "${home_dir}"
         fi
-description: GUI profile - x11+pipewire+camera+microphone+igpu+rocm+docker+home+snap
+description: GUI X11 profile with pulseaudio
 devices:
-  # Run in HOST:
-  # > xhost +local:
-  # > echo "xhost +local:" >> ~/.profile
   x11_server:
     bind: container
     connect: unix:@/tmp/.X11-unix/X1
@@ -105,70 +90,10 @@ devices:
     shift: true
     source: /run/user/1000/pulse/native
     path: /mnt/.container_sockets/native
-  pipewire_socket:
-    type: disk
-    shift: true
-    source: /run/user/1000/pipewire-0
-    path: /mnt/.container_sockets/pipewire-0
-  pipewire_manager_socket:
-    type: disk
-    shift: true
-    source: /run/user/1000/pipewire-0-manager
-    path: /mnt/.container_sockets/pipewire-0-manager
-  camera:
-    busnum: "3"
-    devnum: "2"
-    gid: "1000"
-    productid: "0843"
-    type: usb
-    uid: "1000"
-    vendorid: 046d
-  controlC2:
-    source: /dev/snd/controlC2
-    type: unix-char
-  # Run in HOST:
-  # > incus storage create btrfspool btrfs
-  # > incus storage volume create btrfspool docker
-  docker:
-    path: /var/lib/docker
-    pool: btrfspool
-    source: docker
-    type: disk
-  dri_card0:
-    gid: "44"
-    source: /dev/dri/card0
-    type: unix-char
-  dri_renderD128:
-    gid: "110"
-    source: /dev/dri/renderD128
-    type: unix-char
   gpu:
     gid: "44"
-    pci: "0000:05:00.0"
     type: gpu
-  home:
-    path: /home/ubuntu/eliran
-    shift: "true"
-    source: /home/eliran
-    type: disk
-  # ROCm
   kfd:
     gid: "110"
     source: /dev/kfd
     type: unix-char
-  video0:
-    gid: "44"
-    source: /dev/video0
-    type: unix-char
-  video1:
-    gid: "44"
-    source: /dev/video1
-    type: unix-char
-# Run in CONTAINER:
-# > sudo usermod -a -G render,video $LOGNAME
-# > echo "export DISPLAY=:1" >> ~/.profile
-# > sudo apt update
-# > sudo apt install build-essential linux-headers-\`uname -r\`
-# > sudo apt purge xdg-desktop-portal-gnome
-# > sudo apt purge xdg-desktop-portal-gtk
-# > sudo reboot
