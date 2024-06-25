@@ -10,11 +10,13 @@ Tested Hardware: GPU, Sound, Microphone, Camera
 
 Tested GUI: X11 apps, Qt-based GUI apps, GTK-based apps, Snap apps, System-tray apps
 
+Tested Drivers: ROCm 6.0.2, ROCm 6.1.2, ROCm 6.1.3
+
 Tested input method: ibus
 
 Tested nested container: docker
 
-Tested AI Tools: Llama.cpp, Ollama, Perplexica
+Tested AI Tools: Llama.cpp, Ollama, Perplexica, Piper-TTS
 
 # Install Incus on Ubuntu 24.04 LTS
 
