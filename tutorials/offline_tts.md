@@ -187,6 +187,12 @@ You should be able to hear the statement "Incus container is amazing!" with the 
 echo "Incus container is amazing!" | piper --model en_US-lessac-medium --output-raw | aplay -r 22050 -f S16_LE -t raw -
 ```
 
+If you prefer VLC with speed control, run:
+
+```
+echo "Incus container is amazing!" | piper --model en_US-lessac-medium --output-raw | cvlc --play-and-exit --rate 1.0 --demux=rawaud --rawaud-channels=1 --rawaud-samplerate=22050 - > /dev/null 2>&1
+```
+
 # Final Note
 
 This tutorial not only demonstrate the use of piper-tts with AMD GPU, but also the value of incus container for testing latest drivers or softwares.

@@ -12,6 +12,7 @@ config:
       - alsa-base
       - alsa-utils
       - pavucontrol
+      - vlc
       - dbus-user-session
       - dbus-x11
       - ibus
