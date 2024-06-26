@@ -92,21 +92,21 @@ devices:
     connect: unix:@/tmp/.X11-unix/X1
     listen: unix:@/tmp/.X11-unix/X1
     type: proxy
-  pulseaudio_socket:
-    type: disk
-    shift: true
-    source: /run/user/1000/pulse/native
-    path: /mnt/.container_sockets/native
-  pipewire_socket:
-    type: disk
-    shift: true
-    source: /run/user/1000/pipewire-0
-    path: /mnt/.container_sockets/pipewire-0
   pipewire_manager_socket:
-    type: disk
-    shift: true
-    source: /run/user/1000/pipewire-0-manager
     path: /mnt/.container_sockets/pipewire-0-manager
+    shift: "true"
+    source: /run/user/1000/pipewire-0-manager
+    type: disk
+  pipewire_socket:
+    path: /mnt/.container_sockets/pipewire-0
+    shift: "true"
+    source: /run/user/1000/pipewire-0
+    type: disk
+  pulseaudio_socket:
+    path: /mnt/.container_sockets/native
+    shift: "true"
+    source: /run/user/1000/pulse/native
+    type: disk
   gpu:
     gid: "44"
     type: gpu

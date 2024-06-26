@@ -90,7 +90,7 @@ devices:
     listen: unix:@/tmp/.X11-unix/X1
     type: proxy
   pulseaudio_socket:
-    type: disk
-    shift: true
-    source: /run/user/1000/pulse/native
     path: /mnt/.container_sockets/native
+    shift: "true"
+    source: /run/user/1000/pulse/native
+    type: disk

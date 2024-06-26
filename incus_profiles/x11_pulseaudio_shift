@@ -92,7 +92,7 @@ devices:
     path: /mnt/.container_sockets/X1
     type: disk
   pulseaudio_socket:
-    type: disk
-    shift: true
-    source: /run/user/1000/pulse/native
     path: /mnt/.container_sockets/native
+    shift: "true"
+    source: /run/user/1000/pulse/native
+    type: disk
