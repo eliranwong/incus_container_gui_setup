@@ -187,7 +187,7 @@ You should be able to hear the statement "Incus container is amazing!" with the 
 echo "Incus container is amazing!" | piper --model en_US-lessac-medium --output-raw | aplay -r 22050 -f S16_LE -t raw -
 ```
 
-If you prefer VLC with speed control, run:
+If you prefer VLC player, which supports speed control, run:
 
 ```
 echo "Incus container is amazing!" | piper --model en_US-lessac-medium --output-raw | cvlc --play-and-exit --rate 1.0 --demux=rawaud --rawaud-channels=1 --rawaud-samplerate=22050 - > /dev/null 2>&1
