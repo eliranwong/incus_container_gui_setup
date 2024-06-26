@@ -36,11 +36,6 @@ devices:
     gid: "44"
     source: /dev/dri/card1
     type: unix-char
-  home:
-    path: /home/ubuntu/eliran
-    shift: "true"
-    source: /home/eliran
-    type: disk
   dri_renderD128:
     gid: "110"
     source: /dev/dri/renderD128
