@@ -55,7 +55,7 @@ REMARKS: Follow the following installation order.
 Run in CONTAINER:
 
 ```
-sudo apt install -y pulseaudio-utils dbus-user-session dbus-x11 ibus software-properties-common dirmngr apt-transport-https lsb-release ca-certificates apt-utils build-essential make cmake tree wget curl git zip unzip xz-utils nano micro
+sudo apt install -y pulseaudio-utils alsa-base alsa-utils pavucontrol dbus-user-session dbus-x11 ibus im-config software-properties-common dirmngr apt-transport-https lsb-release ca-certificates apt-utils build-essential make cmake tree wget curl git zip unzip xz-utils nano micro vlc
 sudo apt install "linux-headers-$(uname -r)" "linux-modules-extra-$(uname -r)"
 sudo usermod -a -G render,video $LOGNAME
 sudo reboot
