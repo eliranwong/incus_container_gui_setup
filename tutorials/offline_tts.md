@@ -26,18 +26,20 @@ Check your current audio server with following command:
 pactl info | grep PipeWire
 ```
 
-If there is output, run:
+If there is an output, run:
 
 ```
 wget https://github.com/eliranwong/incus_container_gui_setup/raw/main/incus_profiles/x11_pipewire_snap_onegpu_rocm_shift
+incus profile create x11_pipewire_snap_onegpu_rocm_shift < x11_pipewire_snap_onegpu_rocm_shift
 incus launch images:ubuntu/jammy/cloud -p default -p x11_pipewire_snap_onegpu_rocm_shift rocm613
 ```
 
 If there is no output, run:
 
 ```
-wget https://github.com/eliranwong/incus_container_gui_setup/raw/main/incus_profiles/x11_pulseaudio_snap_onegpu_rocm__shift
-incus launch images:ubuntu/jammy/cloud -p default -p x11_pulseaudio_snap_onegpu_rocm__shift rocm613
+wget https://github.com/eliranwong/incus_container_gui_setup/raw/main/incus_profiles/x11_pulseaudio_snap_onegpu_rocm_shift
+incus profile create x11_pulseaudio_snap_onegpu_rocm_shift < x11_pulseaudio_snap_onegpu_rocm_shift
+incus launch images:ubuntu/jammy/cloud -p default -p x11_pulseaudio_snap_onegpu_rocm_shift rocm613
 ```
 
 # Log in Container
@@ -65,6 +67,7 @@ Run in CONTAINER:
 
 ```
 sudo apt update
+sudo apt-get install libstdc++-12-dev
 wget https://repo.radeon.com/amdgpu-install/6.1.3/ubuntu/jammy/amdgpu-install_6.1.60103-1_all.deb
 sudo apt install ./amdgpu-install_6.1.60103-1_all.deb
 sudo amdgpu-install --usecase=graphics,multimedia,multimediasdk,rocm,rocmdev,rocmdevtools,lrt,opencl,openclsdk,hip,hiplibsdk,openmpsdk,mllib,mlsdk --no-dkms -y

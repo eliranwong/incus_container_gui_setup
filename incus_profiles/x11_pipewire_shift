@@ -9,6 +9,9 @@ config:
     package_reboot_if_required: true
     packages:
       - pulseaudio-utils
+      - alsa-base
+      - alsa-utils
+      - pavucontrol
       - dbus-user-session
       - dbus-x11
       - ibus
