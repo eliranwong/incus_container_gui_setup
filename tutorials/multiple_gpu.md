@@ -177,13 +177,13 @@ Append the file `~/.bashrc`:
 Add the following content at the end of the file:
 
 ```
-# ROCM 6.1.3
+# rocm
 export GFX_ARCH=gfx1100
 export HCC_AMDGPU_TARGET=gfx1100
 export CUPY_INSTALL_USE_HIP=1
 export ROCM_VERSION=6.1
 export ROCM_HOME=/opt/rocm
-export LD_LIBRARY_PATH=/opt/rocm/include:/opt/rocm/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/include/vulkan:/opt/rocm/include:/opt/rocm/lib:$LD_LIBRARY_PATH
 export PATH=/home/eliran/.local/bin:/opt/rocm/bin:/opt/rocm/llvm/bin:$PATH
 export HSA_OVERRIDE_GFX_VERSION=11.0.0
 export ROCR_VISIBLE_DEVICES=GPU-b54ca445df90862b,GPU-2ff163adb661d5fb
@@ -191,10 +191,13 @@ export GPU_DEVICE_ORDINAL=0,1
 export HIP_VISIBLE_DEVICES=0,1
 export CUDA_VISIBLE_DEVICES=0,1
 export LLAMA_HIPLAS=0,1
-export GGML_VULKAN_DEVICE=0,1
-export GGML_VK_VISIBLE_DEVICES=0,1
 export DRI_PRIME=0
 export OMP_DEFAULT_DEVICE=1
+# vulkan
+export GGML_VULKAN_DEVICE=0,1
+export GGML_VK_VISIBLE_DEVICES=0,1
+export VULKAN_SDK=/usr/share/vulkan
+export VK_LAYER_PATH=$VULKAN_SDK/explicit_layer.d
 ```
 
 Remarks: Modify `gfx1100` and the value of `ROCR_VISIBLE_DEVICES`, according to your `rocminfo` output.
