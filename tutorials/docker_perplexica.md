@@ -31,13 +31,14 @@ Run in HOST:
 
 ```
 # Create a btrfs storage pool, as docker does not run well with the default zfs file system
+sudo apt install btrfs-progs
 incus storage create btrfspool btrfs
 # Create a volume to work with docker
 incus storage volume create btrfspool docker
 # Attach volume 'docker' to container 'ub'
 incus config device add ub docker disk pool=btrfspool source=docker path=/var/lib/docker
 # Configure security options to work with docker
-config set ub security.nesting=true security.syscalls.intercept.mknod=true security.syscalls.intercept.setxattr=true
+incus config set ub security.nesting=true security.syscalls.intercept.mknod=true security.syscalls.intercept.setxattr=true
 # Restart container 'ub'
 incus restart ub
 ```
