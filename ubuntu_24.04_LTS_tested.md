@@ -210,6 +210,8 @@ Fix slow startup:
 
 Qt Apps:
 
+> sudo apt install -y libxcb-cursor0
+
 > falkon
 
 Snap Apps:

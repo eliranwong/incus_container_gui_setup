@@ -8,6 +8,7 @@ config:
     package_upgrade: true
     package_reboot_if_required: true
     packages:
+      - libxcb-cursor0
       - pulseaudio-utils
       - alsa-base
       - alsa-utils

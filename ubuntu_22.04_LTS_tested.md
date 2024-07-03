@@ -278,6 +278,25 @@ For multiple GPUs setup, read https://github.com/eliranwong/MultiAMDGPU_AIDev_Ub
 
 > pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.0 --no-cache-dir
 
+# Troubleshooting - Qt Apps
+
+Issue:
+
+```
+qt.qpa.plugin: From 6.5.0, xcb-cursor0 or libxcb-cursor0 is needed to load the Qt xcb platform plugin.
+qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "..." even though it was found.
+This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+
+Available platform plugins are: vkkhrdisplay, xcb, eglfs, wayland, offscreen, minimal, wayland-egl, vnc, minimalegl, linuxfb.
+
+```
+
+Solution:
+
+```
+sudo apt install -y libxcb-cursor0
+```
+
 # Troubleshooting - Snap Apps
 
 To test:
