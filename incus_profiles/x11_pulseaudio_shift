@@ -20,6 +20,12 @@ config:
       - im-config
       - nano
       - micro
+      - dex
+      - xdg-utils
+      - exo-utils
+      - tilix
+      - tilix-common
+      - thunar
     write_files:
     - path: /var/lib/cloud/scripts/per-boot/set_up_sockets.sh
       permissions: 0755
