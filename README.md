@@ -30,11 +30,11 @@ Tested AI Tools: Llama.cpp, Ollama, Perplexica, Piper-TTS
 
 # Install Incus on Ubuntu 22.04 LTS
 
-> sudo mkdir -p /etc/apt/keyrings
-
-> wget -qO - https://pkgs.zabbly.com/key.asc | sudo tee /etc/apt/keyrings/zabbly.asc
-
-> sudo nano /etc/apt/sources.list.d/zabbly-incus-stable.sources
+```
+sudo mkdir -p /etc/apt/keyrings
+wget -qO - https://pkgs.zabbly.com/key.asc | sudo tee /etc/apt/keyrings/zabbly.asc
+sudo nano /etc/apt/sources.list.d/zabbly-incus-stable.sources
+```
 
 Add the following content:
 
@@ -48,15 +48,15 @@ Architectures: amd64
 Signed-By: /etc/apt/keyrings/zabbly.asc
 ```
 
-> sudo apt update
+Run:
 
-> sudo apt install -y incus
-
-> sudo adduser $LOGNAME incus-admin
-
-> newgrp incus-admin
-
-> incus admin init
+```
+sudo apt update
+sudo apt install -y incus
+sudo adduser $LOGNAME incus-admin
+newgrp incus-admin
+incus admin init
+```
 
 # View available Images
 

@@ -139,7 +139,7 @@ sudo apt install -y libstdc++-12-dev
 wget https://repo.radeon.com/amdgpu-install/6.1.3/ubuntu/jammy/amdgpu-install_6.1.60103-1_all.deb
 sudo apt install ./amdgpu-install_6.1.60103-1_all.deb
 sudo amdgpu-install --usecase=graphics,multimedia,multimediasdk,rocm,rocmdev,rocmdevtools,lrt,opencl,openclsdk,hip,hiplibsdk,openmpsdk,mllib,mlsdk --no-dkms -y
-reboot
+sudo reboot
 ```
 
 # Check ROCm Information
@@ -191,7 +191,7 @@ export GPU_DEVICE_ORDINAL=0,1
 export HIP_VISIBLE_DEVICES=0,1
 export CUDA_VISIBLE_DEVICES=0,1
 export LLAMA_HIPLAS=0,1
-export DRI_PRIME=0
+export DRI_PRIME=1
 export OMP_DEFAULT_DEVICE=1
 # vulkan
 export GGML_VULKAN_DEVICE=0,1
@@ -277,6 +277,81 @@ llama_print_timings:       total time =    9119.94 ms /   957 tokens
 ## Result
 
 The difference is more than obvious.
+
+# Full Device List
+
+```
+devices:
+  camera:
+    busnum: "3"
+    devnum: "2"
+    gid: "1000"
+    productid: "0843"
+    type: usb
+    uid: "1000"
+    vendorid: 046d
+  controlC0:
+    source: /dev/snd/controlC0
+    type: unix-char
+  controlC1:
+    source: /dev/snd/controlC1
+    type: unix-char
+  controlC2:
+    source: /dev/snd/controlC2
+    type: unix-char
+  controlC3:
+    source: /dev/snd/controlC3
+    type: unix-char
+  controlC4:
+    source: /dev/snd/controlC4
+    type: unix-char
+  docker:
+    path: /var/lib/docker
+    pool: btrfspool
+    source: docker
+    type: disk
+  dri_card0:
+    gid: "44"
+    source: /dev/dri/card0
+    type: unix-char
+  dri_card1:
+    gid: "44"
+    source: /dev/dri/card1
+    type: unix-char
+  dri_renderD128:
+    gid: "110"
+    source: /dev/dri/renderD128
+    type: unix-char
+  dri_renderD129:
+    gid: "110"
+    source: /dev/dri/renderD129
+    type: unix-char
+  gpu0:
+    gid: "44"
+    pci: 0000:83:00.0
+    type: gpu
+  gpu1:
+    gid: "44"
+    pci: "0000:43:00.0"
+    type: gpu
+  home:
+    path: /home/ubuntu/eliran
+    shift: "true"
+    source: /home/eliran
+    type: disk
+  kfd:
+    gid: "110"
+    source: /dev/kfd
+    type: unix-char
+  video0:
+    gid: "44"
+    source: /dev/video0
+    type: unix-char
+  video1:
+    gid: "44"
+    source: /dev/video1
+    type: unix-char
+```
 
 # Read More: 
 
