@@ -142,6 +142,21 @@ or
 
 > perplexica
 
+# Direct Access from the Host
+
+Install socat for port forwarding:
+
+```
+sudo apt install socat
+```
+
+```
+socat TCP-LISTEN:3001,fork TCP:$(incus list | grep '[0-9] (eth0)' | awk '{print $4}' | cut -d'(' -f1):3001&
+open http://$(incus list | grep '[0-9] (eth0)' | awk '{print $4}' | cut -d'(' -f1):3000
+```
+
+Remarks: Forwarding port 3001 is necessary for access to Perplexica backend server.
+
 # References
 
 https://docs.docker.com/engine/install/ubuntu/
