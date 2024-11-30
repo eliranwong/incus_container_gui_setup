@@ -147,12 +147,9 @@ or
 Install socat for port forwarding:
 
 ```
-sudo apt install socat
-```
-
-```
-socat TCP-LISTEN:3001,fork TCP:$(incus list | grep '[0-9] (eth0)' | awk '{print $4}' | cut -d'(' -f1):3001&
-open http://$(incus list | grep '[0-9] (eth0)' | awk '{print $4}' | cut -d'(' -f1):3000
+sudo apt -y install socat
+echo -e "# forward perplexica backend port\nif ! nc -z localhost 3001 &> /dev/null; then\n  nohup socat TCP-LISTEN:3001,fork TCP:$(incus list | grep '[0-9] (eth0)' | awk '{print $4}' | cut -d'(' -f1):3001&\nfi\nalias perplexica=\"open http://$(incus list | grep '[0-9] (eth0)' | awk '{print $4}' | cut -d'(' -f1):3000\"" | tee -a ~/.bashrc
+source ~/.bashrc
 ```
 
 Remarks: Forwarding port 3001 is necessary for access to Perplexica backend server.
