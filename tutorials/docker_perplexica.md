@@ -33,6 +33,7 @@ Run in HOST:
 # Create a btrfs storage pool, as docker does not run well with the default zfs file system
 sudo apt install btrfs-progs
 incus storage create btrfspool btrfs
+incus storage set btrfspool size=50GB
 # Create a volume to work with docker
 incus storage volume create btrfspool docker
 # Attach volume 'docker' to container 'ub'
@@ -41,6 +42,12 @@ incus config device add ub docker disk pool=btrfspool source=docker path=/var/li
 incus config set ub security.nesting=true security.syscalls.intercept.mknod=true security.syscalls.intercept.setxattr=true
 # Restart container 'ub'
 incus restart ub
+```
+
+To check storage `btrfspool`:
+
+```
+incus storage show btrfspool
 ```
 
 # Log in a GUI-enabled Incus Container
